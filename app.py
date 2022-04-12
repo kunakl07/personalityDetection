@@ -244,9 +244,9 @@ def predict_personality():
     #return render_template('index.html', prediction_text = 'Personality_type is $ {}'.format(dict_personalities[mbti]))
 
 if __name__ == '__main__':
-    app.run(debug=True)
     username = request.form.values()
     getTweets(username)
+    app.run(host = "0.0.0.0", threaded = True,  port = 5000)
 
 
 
