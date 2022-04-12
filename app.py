@@ -173,8 +173,9 @@ def home():
 @app.route("/predict_personality", methods = ["POST"])
 def predict_personality():
     
-    username = request.form["twitter_handle"]
-    print("Mien ho don", username)
+    #username = request.form["twitter_handle"]
+    username = request.get_json()
+
     getTweets(username)
     
     print(username)
