@@ -174,8 +174,8 @@ def home():
 def predict_personality():
     
     #username = request.form["twitter_handle"]
-    username = request.get_json()
-
+    un = request.get_json()
+    username = un['username']
     getTweets(username)
     
     print(username)
