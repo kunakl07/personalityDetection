@@ -178,7 +178,6 @@ def predict_personality():
     username = un['username']
     getTweets(username)
     
-    print(username)
 
     
     with open('newfrequency300.csv','rt') as f:
@@ -191,7 +190,6 @@ def predict_personality():
         tweetList=[rows[0] for rows in csvReader]
     vectorizer=TfidfVectorizer(vocabulary=mydict, min_df=1)
     x=vectorizer.fit_transform(tweetList).toarray()
-    print(x)
     df=pd.DataFrame(x)
 
 
@@ -209,7 +207,6 @@ def predict_personality():
 
     b = Counter(IE)
     value=b.most_common(1)
-    print(value)
     if value[0][0] == 1.0:
         answer.append("I")
     else:
@@ -217,7 +214,6 @@ def predict_personality():
 
     b = Counter(SN)
     value=b.most_common(1)
-    print(value)
     if value[0][0] == 1.0:
         answer.append("S")
     else:
@@ -225,7 +221,6 @@ def predict_personality():
 
     b = Counter(TF)
     value=b.most_common(1)
-    print(value)
     if value[0][0] == 1:
         answer.append("T")
     else:
@@ -233,7 +228,6 @@ def predict_personality():
 
     b = Counter(PJ)
     value=b.most_common(1)
-    print(value)
     if value[0][0] == 1:
         answer.append("P")
     else:
