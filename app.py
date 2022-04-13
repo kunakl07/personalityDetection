@@ -240,12 +240,15 @@ def predict_personality():
         answer.append("J")
     mbti="".join(answer)
     print(mbti)
-    return {mbti: dict_personalities[mbti]}
+    return {
+    "title":mbti,
+    "description":dict_personalities[mbti] 
+    }
 
     #return render_template('index.html', prediction_text = 'Personality_type is $ {}'.format(dict_personalities[mbti]))
 
 if __name__ == '__main__':
-    app.run(host = "0.0.0.0", threaded = True,  port = 5000)
+    app.run(host = "0.0.0.0", threaded = False,  port = 5000)
     username = request.form.values()
     getTweets(username)
 
