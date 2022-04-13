@@ -186,7 +186,6 @@ def predict_personality():
     
     with open('user.csv','rt') as f:
         csvReader=csv.reader(f)
-        print("read f/ile", csvReader)
         tweetList=[rows[0] for rows in csvReader]
     vectorizer=TfidfVectorizer(vocabulary=mydict, min_df=1)
     x=vectorizer.fit_transform(tweetList).toarray()
@@ -203,7 +202,7 @@ def predict_personality():
     SN=model_SN.predict(df)
     TF=model_TF.predict(df)
     PJ=model_PJ.predict(df)
-
+    os.remove('user.csv')
 
     b = Counter(IE)
     value=b.most_common(1)
