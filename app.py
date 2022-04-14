@@ -173,9 +173,9 @@ def home():
 @app.route("/predict_personality", methods = ["POST"])
 def predict_personality():
     
-    username = request.form["twitter_handle"]
-    # un = request.get_json()
-    # username = un['username']
+    #username = request.form["twitter_handle"]
+    un = request.get_json()
+    username = un['username']
     getTweets(username)
     
 
@@ -233,12 +233,12 @@ def predict_personality():
         answer.append("J")
     mbti="".join(answer)
     print(mbti)
-    # return {
-    # "title":mbti,
-    # "description":dict_personalities[mbti] 
-    # }
+    return {
+    "title":mbti,
+    "description":dict_personalities[mbti] 
+    }
 
-    return render_template('index.html', prediction_text = 'Personality_type is $ {}'.format(dict_personalities[mbti]))
+    #return render_template('index.html', prediction_text = 'Personality_type is $ {}'.format(dict_personalities[mbti]))
 
 if __name__ == '__main__':
     app.run(host = "0.0.0.0", threaded = False,  port = 5000)
