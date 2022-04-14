@@ -2,6 +2,8 @@ import numpy as np
 import pandas as pd
 import pickle
 from flask import Flask, request, jsonify, render_template
+from flask_cors import CORS
+
 import csv
 import array
 import pandas
@@ -37,7 +39,6 @@ nltk.download('stopwords')
 import nltk
 from unidecode import unidecode
 nltk.download('punkt')
-
 
 
 dict_personalities = {
@@ -166,10 +167,13 @@ def getTweets(user):
 
 
 app = Flask(__name__)
+CORS(app)
+#@app.route("/home")
 @app.route("/")
 def home():
     return render_template('index.html')
 
+#@app.route("/predict_personality", methods = ["POST", "GET"])
 @app.route("/predict_personality", methods = ["POST"])
 def predict_personality():
     
@@ -242,6 +246,7 @@ def predict_personality():
 
 if __name__ == '__main__':
     app.run(host = "0.0.0.0", threaded = False,  port = 5000)
+    #app.run(debug=True)
     username = request.form.values()
     getTweets(username)
 
