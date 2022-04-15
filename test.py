@@ -51,7 +51,7 @@ class FlaskTestCase(unittest.TestCase):
     def test_preprocess_string_NLP(self):
         string_without_emojis_and_uppercases = a.preprocess_string_NLP("The NonOkay String ^_^ $_$")
         assert string_without_emojis_and_uppercases == "the nonokay string"
-        
+
 
 
 
@@ -69,13 +69,6 @@ class FlaskTestCase(unittest.TestCase):
             print("A valid JSON")
         except ValueError as e:
             print("Not a valid JSON")
-
-
-        
-        # mock_predict_personality = mock.Mock(return_value = y)
-        # tester = app.test_client(self)
-        # response = tester.get('/predict_personality', content_type='html/text')
-        # self.assertEqual(response.status_code, 200)
 
 
 if __name__ == '__main__':
