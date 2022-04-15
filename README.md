@@ -9,8 +9,8 @@ Here, we are detecting 16 different personality, based on the past tweets of the
 We have use [Gaussian Naive Bayes model](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html) as our Machine Learning model. The model is trained on textual data consisting of sentences of users of different personalities.
 Before passing the data to the model we have preprocessed the data where we tokenized the string, removed emoticons and preprocessed the input string. The model is then trained on this preprocessed data.
 
-This model is currently deployed on heroku and test file contains the test cases.
+We have used Flask as our server for and this model is currently deployed on heroku.
 
-
+The test.py contains the test cases that are supposed to pass.
 
 
